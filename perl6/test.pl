@@ -12,11 +12,22 @@ grammar Lang {
     }
 
     rule variable-declaration {
-      'let' <variable-name> ':' <type> '=' <val>
+      'let' <variable-name> ':' <type> '=' <declaration>
     }
 
+    rule declaration {
+      | '() => return ' <val>
+      | <val>
+    }
 
-    token variable-name{
+    rule type {
+      | Int <comparator> <number>
+      | Int
+      | Fn
+      | String
+    }
+
+    token variable-name {
       \w+
     }
 
@@ -24,10 +35,22 @@ grammar Lang {
       \w+
     }
 
-    token type {
-      \w+
+    token number {
+      \d+
+    }
+
+    token comparator {
+      | '>'
+      | '<'
+    }
+
+}
+
+class LangActions {
+    method variable-declaration ($/) {
+      say '[' ~ $<variable-name> ~ '] Type: [' ~ $<type> ~ '] Is: [' ~ $<declaration> ~ ']';
     }
 }
 
 
-say Lang.parse($test)
+Lang.parse($test, actions => LangActions.new)

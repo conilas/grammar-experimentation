@@ -1,2 +1,4 @@
+let num : Int > 1 = 3;
 let num : Int = 3;
-let num_2 : Int = 3;
+let num_2 : String = hey;
+let say : Fn = () => return 0;
