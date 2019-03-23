@@ -1,8 +1,6 @@
-my $fh = open "file_test.boll", :r;
-my $test = $fh.slurp;
-$fh.close;
+unit module grammar;
 
-grammar Lang {
+grammar Lang is export  {
     rule TOP {
       <statement>* %% ";"
     }
@@ -46,11 +44,8 @@ grammar Lang {
 
 }
 
-class LangActions {
-    method variable-declaration ($/) {
-      say '[' ~ $<variable-name> ~ '] Type: [' ~ $<type> ~ '] Is: [' ~ $<declaration> ~ ']';
-    }
+class LangActions is export {
+    # method variable-declaration ($/) {
+    #   # say '[' ~ $<variable-name> ~ '] Type: [' ~ $<type> ~ '] Is: [' ~ $<declaration> ~ ']';
+    # }
 }
-
-
-Lang.parse($test, actions => LangActions.new)
