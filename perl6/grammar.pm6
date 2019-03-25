@@ -6,17 +6,22 @@ grammar Lang is export  {
     }
 
     rule statement {
-      <variable-declaration>
+      | <variable-declaration>
+      | <fn-call>
+    }
+
+    rule fn-call {
+      <fn-name> '(' <word>* ')'
     }
 
     rule variable-declaration {
-      'let' <variable-name> ':' <type> '=' <declaration>
+      'let' <word> ':' <type> '=' <declaration>
     }
 
     rule declaration {
       | <fn-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
-      | <val>
+      | <word>
     }
 
     rule fn-declaration {
@@ -33,14 +38,25 @@ grammar Lang is export  {
     }
 
     rule arguments {
-      | <variable-name> ':' <type>
+      | <word> ':' <type>
     }
 
     rule type {
       | Int <comparator> <number>
+      | Int '~'
       | Int
       | Fn
       | String
+      | '?'
+      | <sum-type-wrap>
+    }
+
+    rule sum-type-wrap {
+      '(' <sum-types> ')'
+    }
+
+    rule sum-types {
+      <type>+ % '|'
     }
 
     token operator {
@@ -50,15 +66,15 @@ grammar Lang is export  {
     }
 
     token value-or-identifier {
-      | <variable-name>
+      | <word>
       | <number>
     }
 
-    token variable-name {
-      \w+
+    token fn-name {
+      <word>
     }
 
-    token val {
+    token word {
       \w+
     }
 
