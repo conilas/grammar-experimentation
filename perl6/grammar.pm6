@@ -14,8 +14,24 @@ grammar Lang is export  {
     }
 
     rule declaration {
-      | '() => return ' <val>
+      | <fn-declaration>
       | <val>
+    }
+
+    rule fn-declaration {
+      | '(' <fn-args>* ')' '=>' <expression>
+    }
+
+    rule expression {
+      | <value-or-identifier> <operator> <value-or-identifier>
+    }
+
+    rule fn-args {
+      <arguments>+ % ','
+    }
+
+    rule arguments {
+      | <variable-name> ':' <type>
     }
 
     rule type {
@@ -23,6 +39,17 @@ grammar Lang is export  {
       | Int
       | Fn
       | String
+    }
+
+    token operator {
+      | '+'
+      | '-'
+      | '/'
+    }
+
+    token value-or-identifier {
+      | <variable-name>
+      | <number>
     }
 
     token variable-name {
@@ -42,10 +69,4 @@ grammar Lang is export  {
       | '<'
     }
 
-}
-
-class LangActions is export {
-    # method variable-declaration ($/) {
-    #   # say '[' ~ $<variable-name> ~ '] Type: [' ~ $<type> ~ '] Is: [' ~ $<declaration> ~ ']';
-    # }
 }
