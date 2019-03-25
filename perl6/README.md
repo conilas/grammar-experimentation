@@ -1,9 +1,9 @@
-#Grammar
+# Grammar
 
 This project folder will try and describe a possible grammar for the language I'm working on. Since I have to work with dependent/refined types (and keep) the rest of it as familiar as possible, I'll try to use a grammar with common types (Int, String, Bool, etc) and they will have a few modifiers.
 Those modifiers will have different behavior for each specified type. The following piece documents some of the possibilities.
 
-##Int
+## Int
 
 The ```INT``` type is refined with GT (>), LT (>), GTE (>=), LEQ (<=) for now. It can also have the '~' modifier.
 
