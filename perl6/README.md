@@ -3,7 +3,7 @@
 This project folder will try and describe a possible grammar for the language I'm working on. Since I have to work with dependent/refined types (and keep) the rest of it as familiar as possible, I'll try to use a grammar with common types (Int, String, Bool, etc) and they will have a few modifiers.
 Those modifiers will have different behavior for each specified type. The following piece documents some of the possibilities about the types.
 
-#Types
+# Types
 
 ## Int
 
@@ -19,11 +19,11 @@ The ```INT``` type is refined with GT (>), LT (>), GTE (>=), LEQ (<=) for now. I
 
 * DEF (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value. This feature is yet to be though and documented.
 
-#Declarations
+# Declarations
 
 A declaration *must* be in the following form:
 
-let [NAME] : [UNIVERSE] = [VALUE];
+```let [NAME] : [UNIVERSE] = [VALUE];```
 
 * NAME: The name of the working variable. The idea of this name is to identify in its scope (be it global or scoped). This name can always be *shadowed* (because every value is immutable in any context).
 
@@ -31,7 +31,7 @@ let [NAME] : [UNIVERSE] = [VALUE];
 
 * VALUE: The value that the [NAME] will represent now.
 
-##Function declaration
+## Function declaration
 
 A function will always be identified in the following form:
 
@@ -47,7 +47,10 @@ Let's break it down in the form of a declaration:
 
 * UNIVERSE: In this case, it is specified by ```Fn```, which simply means it is a function.
 
-* VALUE: In this case, the value is a lambda with arguments that has some body -- which will be executed whenever the [NAME] is called.
+* VALUE: In this case, the value is a lambda with arguments that has some body -- which will be executed whenever the [NAME] is called. The function declaration is a bit special. It will have always a declaration that is formatted in some specific way. The form of a function in #{LANG_NAME} will always go like this:
 
-  * The function declaration is a bit special. It will have always a declaration that is formatted in some specific way. The form of a function in #{LANG_NAME} will always go like this:
-    ([ARGS]) => [BODY];
+```([ARGS]) => [BODY];```
+
+  * ARGS: The arguments of a function. The arguments will always have to be specified in the same way as [UNIVERSE]. This means a function can receive *universes*, refined types or common values to work with. 
+  * BODY: The body of the function, consisting of other function calls, IO operations and such.
+    
