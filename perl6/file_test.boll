@@ -1,11 +1,21 @@
-let safe_divide : Fn = (a: Int > 0, b: Int, c : (String | Int)) =>
-    let var_b : Int > 5 = 0;
-    let var_c : Int = a + 1;
-    let var_c : Int~ = a + 1;
-    let var_d : ? = var_c + 1;
+let Naturals : Universe = Int > 3;
 
-    fn_call();
-    fn_call(var_b);
+let safe_divide : Fn = (a: Int > 0, b: Int, c : (String | Int)) =>
+    let var_b : Int > 5 = 0
+    let var_c : Int = a + 1
+    let var_c : Int~ = a + 1
+    let var_d : ? = var_c + 1
+
+    fn_call()
+    fn_call(var_b)
+;
+
+let aliased : Fn = (c : alias) =>
+  print(c)
+;
+
+let definer : Fn = (type: Universe) =>
+  let var_b : type = 0
 ;
 
 let safe_divide : Fn = (a: Int > 0, b: Int) => b/a;

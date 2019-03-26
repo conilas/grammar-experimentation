@@ -2,7 +2,8 @@ unit module grammar;
 
 grammar Lang is export  {
     rule TOP {
-      <statement>* %% ";"
+      # | "//" ?'a'?*
+      | <statement>* %% ';'
     }
 
     rule statement {
@@ -21,6 +22,7 @@ grammar Lang is export  {
     rule declaration {
       | <fn-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
+      | <type>
       | <word>
     }
 
@@ -30,7 +32,7 @@ grammar Lang is export  {
 
     rule expression {
       | <value-or-identifier> <operator> <value-or-identifier>
-      | <statement>* %% ";"
+      | <statement>*
     }
 
     rule fn-args {
@@ -47,8 +49,10 @@ grammar Lang is export  {
       | Int
       | Fn
       | String
+      | Universe
       | '?'
       | <sum-type-wrap>
+      | \w+
     }
 
     rule sum-type-wrap {
