@@ -43,14 +43,11 @@ let safe_divide : Fn = (dividend: Int > 0, divisor: Int) =>
 
 Let's break it down in the form of a declaration:
 
-* NAME: In this case, the function is identified by ```divide```. This means that the value can be used anywhere in its scope and whenever called will reproduce the declared body.
+* __NAME__: In this case, the function is identified by ```divide```. This means that the value can be used anywhere in its scope and whenever called will reproduce the declared body.
 
-* UNIVERSE: In this case, it is specified by ```Fn```, which simply means it is a function.
+* __UNIVERSE__: In this case, it is specified by ```Fn```, which simply means it is a function.
 
-* VALUE: In this case, the value is a lambda with arguments that has some body -- which will be executed whenever the [NAME] is called. The function declaration is a bit special. It will have always a declaration that is formatted in some specific way. The form of a function in #{LANG_NAME} will always go like this:
-
-```([ARGS]) => [BODY];```
-
-  * ARGS: The arguments of a function. The arguments will always have to be specified in the same way as [UNIVERSE]. This means a function can receive *universes*, refined types or common values to work with. 
-  * BODY: The body of the function, consisting of other function calls, IO operations and such.
+* __VALUE__: In this case, the value is a lambda with arguments that has some body -- which will be executed whenever the [NAME] is called. The function declaration is a bit special. It will have always a declaration that is formatted in some specific way. The form of a function in #{LANG_NAME} will always go like this: ```([ARGS]) => [BODY];```. Let's break it down again:
+  * __ARGS__: The arguments of a function. The arguments will always have to be specified in the same way as [UNIVERSE]. This means a function can receive *universes*, refined types or common values to work with. 
+  * __BODY__: The body of the function, consisting of other function calls, IO operations and such.
     
