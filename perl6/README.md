@@ -9,15 +9,15 @@ Those modifiers will have different behavior for each specified type. The follow
 
 The ```INT``` type is refined with GT (>), LT (>), GTE (>=), LEQ (<=) for now. It can also have the '~' modifier.
 
-* GT (>): Will specify that this type is an Int greater than another specified value. The other specified value *must* be an identifier for another number or a number itself.
+* __GT__ (>): Will specify that this type is an Int greater than another specified value. The other specified value *must* be an identifier for another number or a number itself.
 
-* LT (<): Will specify that this type is an Int lower than another specified value. The other specified value *must* be an identifier for another number or a number itself.
+* __LT__ (<): Will specify that this type is an Int lower than another specified value. The other specified value *must* be an identifier for another number or a number itself.
 
-* GTE (>=): Will specify that this type is an Int greater *or* equal than another specified value. The other specified value *must* be an identifier for another number or a number itself.
+* __GTE__ (>=): Will specify that this type is an Int greater *or* equal than another specified value. The other specified value *must* be an identifier for another number or a number itself.
 
-* LEQ (<=): Will specify that this type is an Int lower *or* equal than another specified value. The other specified value *must* be an identifier for another number or a number itself.
+* __LEQ__ (<=): Will specify that this type is an Int lower *or* equal than another specified value. The other specified value *must* be an identifier for another number or a number itself.
 
-* DEF (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value. This feature is yet to be though and documented.
+* __DEF__ (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value. This feature is yet to be though and documented.
 
 # Declarations
 
@@ -25,11 +25,11 @@ A declaration *must* be in the following form:
 
 ```let [NAME] : [UNIVERSE] = [VALUE];```
 
-* NAME: The name of the working variable. The idea of this name is to identify in its scope (be it global or scoped). This name can always be *shadowed* (because every value is immutable in any context).
+* __NAME__: The name of the working variable. The idea of this name is to identify in its scope (be it global or scoped). This name can always be *shadowed* (because every value is immutable in any context).
 
-* UNIVERSE: A universe is either a type or a universe itself. The idea of the Universe comes from the book *The little typer*, in which case we are able to identify that the variable identified by [NAME] is a type expression. The universe will go in a ranged list.
+* __UNIVERSE__: A universe is either a type or a universe itself. The idea of the Universe comes from the book *The little typer*, in which case we are able to identify that the variable identified by [NAME] is a type expression. The universe will go in a ranged list.
 
-* VALUE: The value that the [NAME] will represent now.
+* __VALUE__: The value that the [NAME] will represent now.
 
 ## Function declaration
 
