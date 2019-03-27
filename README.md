@@ -3,6 +3,38 @@
 This project folder will try and describe a possible grammar for the language I'm working on. Since I have to work with dependent/refined types (and keep) the rest of it as familiar as possible, I'll try to use a grammar with common types (Int, String, Bool, etc) and they will have a few modifiers.
 Those modifiers will have different behavior for each specified type. The following piece documents some of the possibilities about the types.
 
+# Code demonstration
+
+This is some code in #{LANG_NAME}. Cool, huh?
+
+```javascript
+let Naturals : Universe = Int > 3;
+
+let safe_divide : Fn = (a: Int > 0, b: Int, c : (String | Int)) =>
+    let var_b : Int > 5 = 0 #compiler will throw error
+    let var_c : Int = a + 1
+    let var_c : Int~ = a + 1
+    let var_d : ? = var_c + 1
+
+    fn_call()
+    fn_call(var_b)
+;
+
+let aliased : Fn = (c : alias) =>
+  print(c)
+;
+
+let definer : Fn = (type: Universe) =>
+  let var_b : type = 0
+;
+
+let safe_divide : Fn = (a: Int > 0, b: Int) => b/a;
+
+let unsafe_divide : Fn = () => 10/20;
+
+let var_b : Int > 5 = 0;
+```
+
 # Types
 
 ## Int
@@ -17,7 +49,7 @@ The ```INT``` type is refined with GT (>), LT (>), GTE (>=), LEQ (<=) for now. I
 
 * __LEQ__ (<=): Will specify that this type is an Int lower *or* equal than another specified value. The other specified value *must* be an identifier for another number or a number itself.
 
-* __DEF__ (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value. This feature is yet to be though and documented.
+* __DEF__ (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value. 
 
 # Declarations
 
