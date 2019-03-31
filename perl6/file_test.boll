@@ -1,10 +1,24 @@
-let Naturals : Universe = Int > 0
+let test be the Module {
 
-//This is a more-than-one-line function
-let division : Fn = (dividend: Naturals, divisor: Int) => {
-  let ble : Naturals = 1
-  let cle : Naturals = 1
-} 
+//  Let's say I want to have a  new declaration. We have three ways to do so:
 
-//This is a one-liner function
-let division_one_liner : Fn = (dividend: Naturals, divisor: Int) => divisor/dividend
+//  1. Allow the type Natural to be the Universe of value Int > 0
+  let Natural be the Universe Int > 0
+//  2. Allow int to be a Universe and attribute a direct value
+  let Natural be Universe = Int > 0
+//  3. Programmers
+  let Natural : Universe = Int > 0
+
+// This is a more-than-one-line function
+  let division be the Fn (dividend is Natural, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
+
+// This is a one-liner function
+  let division_one_liner be Fn = (dividend: Naturals, divisor: Int) => divisor/dividend
+
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+}

@@ -1,14 +1,15 @@
 unit module grammar;
 # no precompilation;
-# use Grammar::Debugger;
+# use Grammar::ErrorReporting;
 
 grammar Lang is export  {
     rule TOP {
-      # | "//" ?'a'?*
       | <statement>* %% <.eol>
     }
 
-    token ws { <!ww> \h* }
+    token ws {
+      <!ww> \h*
+    }
 
     token eol {
        [ [ <[\/\/;]> \N* ]? \n ]+
@@ -17,6 +18,12 @@ grammar Lang is export  {
     rule statement {
       | <variable-declaration>
       | <expression>
+      | 'class' <word> '{' <.eol> <class-statements>* % <.eol> <.eol> '}'
+    }
+
+    rule class-statements {
+      | 'prop' <word> 'be' <type>
+      | <variable-declaration>
     }
 
     rule fn-call {
@@ -24,15 +31,21 @@ grammar Lang is export  {
     }
 
     rule variable-declaration {
-      'let' <word> ':' <type> '=' <declaration>
+      | 'let' <word> ['be' | ':'] <type> '=' <declaration>
+      | 'let' <word> ['be the' | ':'] <type> <declaration>
     }
 
     rule declaration {
       | <fn-declaration>
+      | <module-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
       | <value-or-identifier>
       | <expression>
       | <type>
+    }
+
+    rule module-declaration {
+      | '{' <.eol> <module-body> <.eol>  '}'
     }
 
     rule fn-declaration {
@@ -42,6 +55,10 @@ grammar Lang is export  {
     rule fn-body-formats {
       | '{' <.eol> <fn-body> <.eol> '}'
       | <expression>
+    }
+
+    rule module-body {
+      <expression>* % <.eol>
     }
 
     rule fn-body {
@@ -60,7 +77,7 @@ grammar Lang is export  {
     }
 
     rule pattern-match-clauses {
-      <pattern-match-clause-brace>+ %% ';'
+      <pattern-match-clause-brace>+ % <.eol>
     }
 
     rule pattern-match-clause-brace {
@@ -82,7 +99,7 @@ grammar Lang is export  {
     }
 
     rule arguments {
-      | <word> ':' <type>
+      | <word> ['is' | ':'] <type>
     }
 
     rule type {
@@ -92,6 +109,7 @@ grammar Lang is export  {
       | Fn
       | String
       | Universe
+      | Module
       | '?'
       | <sum-type-wrap>
       | \w+

@@ -8,31 +8,30 @@ Those modifiers will have different behavior for each specified type. The follow
 This is some code in #{LANG_NAME}. Cool, huh?
 
 ```javascript
-let Naturals : Universe = Int > 3;
+let test be the Module {
 
-let safe_divide : Fn = (a: Int > 0, b: Int, c : (String | Int)) =>
-    let var_b : Int > 5 = 0 #compiler will throw error
-    let var_c : Int = a + 1
-    let var_c : Int~ = a + 1
-    let var_d : ? = var_c + 1
+//  Let's say I want to have a  new declaration. We have three ways to do so:
 
-    fn_call()
-    fn_call(var_b)
-;
+//  1. Allow the type Natural to be the Universe of value Int > 0
+  let Natural be the Universe Int > 0
+//  2. Allow int to be a Universe and attribute a direct value
+  let Natural be Universe = Int > 0
+//  3. Programmers
+  let Natural : Universe = Int > 0
 
-let aliased : Fn = (c : alias) =>
-  print(c)
-;
+// This is a more-than-one-line function
+  let division be the Fn (dividend is Natural, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
 
-let definer : Fn = (type: Universe) =>
-  let var_b : type = 0
-;
+// This is a one-liner function
+  let division_one_liner be Fn = (dividend: Naturals, divisor: Int) => divisor/dividend
 
-let safe_divide : Fn = (a: Int > 0, b: Int) => b/a;
-
-let unsafe_divide : Fn = () => 10/20;
-
-let var_b : Int > 5 = 0;
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+}
 ```
 
 # Types
@@ -49,7 +48,7 @@ The ```INT``` type is refined with GT (>), LT (>), GTE (>=), LEQ (<=) for now. I
 
 * __LEQ__ (<=): Will specify that this type is an Int lower *or* equal than another specified value. The other specified value *must* be an identifier for another number or a number itself.
 
-* __DEF__ (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value. 
+* __DEF__ (~) aka Definer: Will specify that the compiler *must* try and find a sufficient type for the value.
 
 # Declarations
 
