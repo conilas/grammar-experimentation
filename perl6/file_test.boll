@@ -9,14 +9,22 @@ let test be the Module {
 //  3. Programmers
   let Natural : Universe = Int > 0
 
+//We have sum types :-)
+  let sum_string_natural be Universe = (String | Natural)
+
+  let product_type be the Product (
+    let x be Int = 0
+    let y be Number = 0
+  )
+
 // This is a more-than-one-line function
-  let division be the Fn (dividend is Natural, divisor is Int) => {
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => {
     let ble be Natural = 1
     let cle be Natural = 1
   }
 
-// This is a one-liner function
-  let division_one_liner be Fn = (dividend: Naturals, divisor: Int) => divisor/dividend
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
 
 // This is just some value decl
   let x be Natural = 1

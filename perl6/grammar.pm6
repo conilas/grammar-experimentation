@@ -36,12 +36,17 @@ grammar Lang is export  {
     }
 
     rule declaration {
+      | <type>
+      | <product-type>
       | <fn-declaration>
       | <module-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
       | <value-or-identifier>
       | <expression>
-      | <type>
+    }
+
+    rule product-type {
+      | '(' <.eol> <module-body> <.eol> ')'
     }
 
     rule module-declaration {
@@ -49,7 +54,7 @@ grammar Lang is export  {
     }
 
     rule fn-declaration {
-      | '(' <fn-args>* ')' '=>' <fn-body-formats>
+      | ['of' | ':'] <type> '(' <fn-args>* ')' '=>' <fn-body-formats>
     }
 
     rule fn-body-formats {
