@@ -22,13 +22,18 @@ let test be the Module {
 //We have sum types :-)
   let sum_string_natural be Universe = (String | Natural)
 
-  let product_type be the Product (
-    let x be Int = 0
-    let y be Number = 0
-  )
+//We have product types ...
+  let product_type be Product = {
+    x is Int, y is String
+  }
+
+//... and the natural way to declare 'em!
+  let second_example be the Product where {
+    x is Int, y is String
+  }
 
 // This is a more-than-one-line function
-  let division be the Fn of Int (dividend is Natural, divisor is Int) => {
+  let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
     let ble be Natural = 1
     let cle be Natural = 1
   }
@@ -40,7 +45,6 @@ let test be the Module {
   let x be Natural = 1
   let x be the Natural 1
 }
-
 ```
 
 # Types
@@ -95,7 +99,7 @@ Let's break it down in the form of a declaration:
 
 ## What we cover (syntactically speaking)
 
-* Product types; 
+* Product types;
 * Sum types;
 * Refined types;
 * Modules;
@@ -110,6 +114,7 @@ Let's break it down in the form of a declaration:
 * Parametric polymorphism; (aka generics)
 * Named parameters; (maybe this one is easy)
 * A decent syntax-highlight for Vim, emacs or wichever is easier;
+* Some way, shape of form of concurrency (CSP, Actors, Futures?);
 
 ## What we may cover
 
