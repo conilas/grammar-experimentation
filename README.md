@@ -132,6 +132,14 @@ Let's break it down in the form of a declaration:
 * CPS (because I'm not that smart)
 * Variable mutability (because it is not necessary)
 
+## Implementations
+
+* Finish Perl6 parser implementation according to what we must cover;
+* Do the parsing stuff in Lua using LPEG and in Ocaml (ocamllex and ocamlyacc);
+* ?
+* Cry in the bath because you'll probably fail
+* Think of next steps
+
 # Inspirations
 
 * BCPL (the ```be``` idea intrigues me);
