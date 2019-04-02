@@ -111,13 +111,14 @@ Let's break it down in the form of a declaration:
 
 ## What we must cover
 
-* Dependent types; (how?)
-* Tuples;
-* Parametric polymorphism; (aka generics)
-* Named parameters; (maybe this one is easy)
+* Dependent types; (how?) (Idris style);
+* Tuples; (Me.. every decent language style I guess?);
+* Parametric polymorphism; (aka generics) (This one is hard! ML Style? Swift Style? C++ style with Concepts?);
+* Named parameters; (maybe this one is easy) (Python style!);
 * A decent syntax-highlight for Vim, emacs or wichever is easier;
-* Some way, shape of form of concurrency (CSP, Actors, Futures?);
-* Pipe operators;
+* Some way, shape of form of concurrency (CSP, Actors, Futures?); (Go/Pony/Elixir/JS style);
+* Pipe operators; (Shell/Elixir style);
+* List/Set comprehensions; (SETL/Python/ABC Style);
 
 ## What we may cover
 
