@@ -19,19 +19,28 @@ let test be the Module {
 //  3. Programmers
   let Natural : Universe = Int > 0
 
+//We have sum types :-)
+  let sum_string_natural be Universe = (String | Natural)
+
+  let product_type be the Product (
+    let x be Int = 0
+    let y be Number = 0
+  )
+
 // This is a more-than-one-line function
-  let division be the Fn (dividend is Natural, divisor is Int) => {
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => {
     let ble be Natural = 1
     let cle be Natural = 1
   }
 
-// This is a one-liner function
-  let division_one_liner be Fn = (dividend: Naturals, divisor: Int) => divisor/dividend
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
 
 // This is just some value decl
   let x be Natural = 1
   let x be the Natural 1
 }
+
 ```
 
 # Types
@@ -83,3 +92,34 @@ Let's break it down in the form of a declaration:
 * __VALUE__: In this case, the value is a lambda with arguments that has some body -- which will be executed whenever the [NAME] is called. The function declaration is a bit special. It will have always a declaration that is formatted in some specific way. The form of a function in #{LANG_NAME} will always go like this: ```([ARGS]) => [BODY];```. Let's break it down again:
   * __ARGS__: The arguments of a function. The arguments will always have to be specified in the same way as [UNIVERSE]. This means a function can receive *universes*, refined types or common values to work with.
   * __BODY__: The body of the function, consisting of other function calls, IO operations and such.
+
+## What we cover (syntactically speaking)
+
+* Product types; 
+* Sum types;
+* Refined types;
+* Modules;
+* Higher-order types;
+* Higher-order function;
+* Default parameters;
+
+## What we must cover
+
+* Dependent types; (how?)
+* Tuples;
+* Parametric polymorphism; (aka generics)
+* Named parameters; (maybe this one is easy)
+* A decent syntax-highlight for Vim, emacs or wichever is easier;
+
+## What we may cover
+
+* Monadic syntax; (maybe just the optional monad to avoid being two pedant - and I would not be able to implement those lol)
+* State control; (for the product types maybe?)
+* Objects; (prototype? classes? this one annoys me - hard to tackle)
+* Meta programming; (Hygienic macros; α-conversion)
+
+## What we do not expect to cover
+
+* Algebraic effects (because I'm not that smart)
+* CPS (because I'm not that smart)
+* Variable mutability (because it is not necessary)

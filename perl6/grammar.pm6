@@ -46,7 +46,8 @@ grammar Lang is export  {
     }
 
     rule product-type {
-      | '(' <.eol> <module-body> <.eol> ')'
+      | 'where' '{' <.eol> <fn-args> <.eol> '}'
+      | '{' <.eol> <fn-args> <.eol> '}'
     }
 
     rule module-declaration {
@@ -104,6 +105,7 @@ grammar Lang is export  {
     }
 
     rule arguments {
+      | <word> ['is' | ':'] <type> '=' <value-or-identifier>
       | <word> ['is' | ':'] <type>
     }
 
