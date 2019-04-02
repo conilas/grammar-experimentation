@@ -117,6 +117,7 @@ Let's break it down in the form of a declaration:
 * Named parameters; (maybe this one is easy)
 * A decent syntax-highlight for Vim, emacs or wichever is easier;
 * Some way, shape of form of concurrency (CSP, Actors, Futures?);
+* Pipe operators;
 
 ## What we may cover
 
@@ -131,4 +132,11 @@ Let's break it down in the form of a declaration:
 * CPS (because I'm not that smart)
 * Variable mutability (because it is not necessary)
 
+# Inspirations
 
+* BCPL (the ```be``` idea intrigues me);
+* OCaml (```let``` for any type of declaration makes everything easier);
+* Rust/Ocaml again (Immutability!);
+* Ponylang/Crystal (syntax simplicity, sum types and modern!);
+* The little typer (book) and Idris (dependent/refined types);
+* Parsing Expression Grammars - PEGS (parsing);
