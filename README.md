@@ -97,6 +97,8 @@ Let's break it down in the form of a declaration:
   * __ARGS__: The arguments of a function. The arguments will always have to be specified in the same way as [UNIVERSE]. This means a function can receive *universes*, refined types or common values to work with.
   * __BODY__: The body of the function, consisting of other function calls, IO operations and such.
 
+# Goals and non-goals
+
 ## What we cover (syntactically speaking)
 
 * Product types;
@@ -128,3 +130,5 @@ Let's break it down in the form of a declaration:
 * Algebraic effects (because I'm not that smart)
 * CPS (because I'm not that smart)
 * Variable mutability (because it is not necessary)
+
+
