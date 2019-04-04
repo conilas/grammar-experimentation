@@ -126,6 +126,7 @@ Let's break it down in the form of a declaration:
 * State control; (for the product types maybe?)
 * Objects; (prototype? classes? this one annoys me - hard to tackle)
 * Meta programming; (Hygienic macros; α-conversion)
+* Multi-method and late binding; 
 
 ## What we do not expect to cover
 
