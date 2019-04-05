@@ -101,13 +101,14 @@ Let's break it down in the form of a declaration:
 
 ## What we cover (syntactically speaking)
 
-* Product types;
-* Sum types;
-* Refined types;
-* Modules;
-* Higher-order types;
-* Higher-order function;
-* Default parameters;
+* Product types; (Inspired by records in F# or structs in Rust)
+* Sum types; (Inspired by Crystal and Pony)
+* Refined types; (Liquid haskell inspired, but not that advanced)
+* Modules; (Still defining. Maybe mesa-like?)
+* Higher-order types; (Inspired by The Little Typer and its PieLang)
+* Higher-order function; (The syntax of function declaration is heavily inspired by JS)
+* Default parameters; (Python style)
+* Pattern match with guards; (OCaml style)
 
 ## What we must cover
 
@@ -119,6 +120,7 @@ Let's break it down in the form of a declaration:
 * Some way, shape of form of concurrency (CSP, Actors, Futures?); (Go/Pony/Elixir/JS style);
 * Pipe operators; (Shell/Elixir style);
 * List/Set comprehensions; (SETL/Python/ABC Style);
+* Anonymous TAGGED union types;  (Crystal)
 
 ## What we may cover
 

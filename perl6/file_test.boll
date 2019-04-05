@@ -22,6 +22,15 @@ let test be the Module {
     x is Int, y is String
   }
 
+// We have some nice pattern match with guards :-)
+// You can do this (as you would be able to in Crystal)
+  let anon_tagged_union be the Fn of (String | Int) (first is String, second is Int) => {
+    match second with
+      x when x > 20 => x
+      otherwise => first
+    end
+  } 
+
 // This is a more-than-one-line function
   let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
     let ble be Natural = 1

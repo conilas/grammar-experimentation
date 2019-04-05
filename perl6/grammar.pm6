@@ -74,20 +74,32 @@ grammar Lang is export  {
     rule expression {
       | <variable-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
+      | <value-or-identifier> <comparator> <value-or-identifier>
       | <pattern-match>
       | <fn-call>
+      | <conditional>
+    }
+
+    rule conditional {
+      | 'if' <expression> 'then' <.eol> <expression> <.eol> 'else' <.eol> <expression> <.eol> 'end'
+      | 'if' <expression> 'then' <.eol> <expression> <.eol> 'end'
     }
 
     rule pattern-match {
-      'match' <word> '{' <pattern-match-clauses>* '}'
+      'match' <word> 'with' <.eol> <pattern-match-clauses> <.eol> 'end'
+    }
+
+    rule pattern-clause {
+      | <word> 'when' <expression>
+      | <word>
     }
 
     rule pattern-match-clauses {
-      <pattern-match-clause-brace>+ % <.eol>
+      <pattern-match-clause-brace>* % <.eol>
     }
 
     rule pattern-match-clause-brace {
-      <word> '=>' <pattern-match-clause-brace-value>
+      <pattern-clause> '=>' <pattern-match-clause-brace-value>
     }
 
     rule pattern-match-clause-brace-value {
