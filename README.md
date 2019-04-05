@@ -41,6 +41,15 @@ let test be the Module {
 // This is a more-than-one-line function
   let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
 
+// We have some nice pattern match with guards :-)
+// You can do this (as you would be able to in Crystal)
+  let anon_tagged_union be the Fn of (String | Int) (first is String, second is Int) => {
+    match second with
+      x when x > 20 => x
+      otherwise => first
+    end
+  }
+
 // This is just some value decl
   let x be Natural = 1
   let x be the Natural 1
@@ -128,7 +137,7 @@ Let's break it down in the form of a declaration:
 * State control; (for the product types maybe?)
 * Objects; (prototype? classes? this one annoys me - hard to tackle)
 * Meta programming; (Hygienic macros; α-conversion)
-* Multi-method and late binding; 
+* Multi-method and late binding;
 
 ## What we do not expect to cover
 
