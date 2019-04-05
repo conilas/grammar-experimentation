@@ -130,7 +130,7 @@ Let's break it down in the form of a declaration:
 * Pipe operators; (Shell/Elixir style);
 * List/Set comprehensions; (SETL/Python/ABC Style);
 * Anonymous TAGGED union types;  (Crystal)
-* Some sort of local type inference for refined types (https://arxiv.org/pdf/1807.02132.pdf);
+* Some sort of local type inference for refined types (https://arxiv.org/pdf/1807.02132.pdf and http://goto.ucsd.edu/~rjhala/liquid/liquid_types.pdf);
 
 ## What we may cover
 
