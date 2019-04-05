@@ -33,6 +33,7 @@ grammar Lang is export  {
     rule variable-declaration {
       | 'let' <word> ['be' | ':'] <type> '=' <declaration>
       | 'let' <word> ['be the' | ':'] <type> <declaration>
+      | 'let' <word> 'be' <declaration>
     }
 
     rule declaration {

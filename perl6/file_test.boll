@@ -29,7 +29,7 @@ let test be the Module {
       x when x > 20 => x
       otherwise => first
     end
-  } 
+  }
 
 // This is a more-than-one-line function
   let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
@@ -43,4 +43,7 @@ let test be the Module {
 // This is just some value decl
   let x be Natural = 1
   let x be the Natural 1
+
+// Local Type Inference is a thing here.. Inspired by https://arxiv.org/pdf/1807.02132.pdf
+  let x be 1
 }
