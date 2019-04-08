@@ -12,13 +12,20 @@ let test be the Module {
 //We have sum types :-)
   let sum_string_natural be Universe = (String | Natural)
 
-//We have product types ...
-  let product_type be Product = {
+// Infered version. For product types, it will check in the current module and
+//try to infer. If there is no product type that conforms to these values in the
+//current module, it will have to have its type annotated
+  let InferedExample = {
+    x is Int, y is String
+  }
+
+//Like the following...
+  let CommonDeclarationExample be Product = {
     x is Int, y is String
   }
 
 //... and the natural way to declare 'em!
-  let second_example be the Product where {
+  let SecondExample be the Product where {
     x is Int, y is String
   }
 

@@ -1,0 +1,74 @@
+# Syntax
+
+The idea of #{LANG_NAME} syntax is to allow a programmer to talk to the computer in an easy way - not having to remember some cumbersome notation. It is a hard thing to accomplish even because people are already used to some notations they don't even  know how to traduce, such as PHP's ```$``` and OCaml's ```;;```.
+
+# Declarations
+
+So, if we want to make it simple for people to use the language, then the declarations are not supposed to be hard to remember.  
+
+Despite that, we do not want to rule out people that are used to the notation of Algol-family languages. So we do have the normal way to declare it - and the programmers way!
+
+One may complain that having more than one way to declare stuff may bring confusion to the syntax. But the idea here is to bring the language closer to programmers and people that are starting to program - and make them meet halfway!
+
+The first way to declare a value - most people are used to it:
+
+```
+let [NAME] : [UNIVERSE] = [VALUE]
+```
+
+An equivalent way to do so in a more natural way:
+
+```
+let [NAME] be [UNIVERSE] = [VALUE]
+```
+
+That second way is a coold deal - everybody would understand it. Actually, [BCPL] (http://rabbit.eng.miami.edu/info/bcpl_reference_manual.pdf), the (grand)father of Pascal and C already brought the ```let <it> be ``` in the first place - we were simply inspired by it!
+
+But what if we could achieve more? What if we could say to the machine that I want to ```let``` the name ```be the``` Integer 1? Directly saying that is allowed, like:
+
+```
+let value be the Int 1
+```
+
+A few points:
+
+* The language incentives you to use the last way because of its design philosophy - but allows and guarantees the same behavior for any of the three types;
+* Declarations are immutable - we do not yet support direct mutability, although direct shadowing is allowed;
+* That declaration syntax works for Types, Values, Products, Sums and Functions, although functions have some little more detailing attached;
+
+## Declaring a new type
+
+Another core idea of the language is Refined/Dependent types. The idea that you can have qualifiers for each type - and that you may even define new qualifiers - was one of the motivators for the project.
+
+So, this idea was inspired by the book The little typer, in which the author descibres **PieLang**. In order to achieve some related experience, we brought the Universe value - a domain that other types belong to. This means we can write the following:
+
+```
+let Natural be the Universe Int > 0
+```
+
+In which we have described the Naturals numbers - any integer value bigger than 0! This is useful in, say, a function that divides two number. A number can't be divided by 0 - so we can add that constraint by changing the expected type from ```Int``` to ```Natural``` -- be calm, an example will be put in the next section!
+
+## Declaring a function
+
+The declaration of a function varies a lot in all languages. In some of them (most commonly on those that claim to be Object Oriented), functions have a special syntax to declare - such as using the name ```function``` or something like that.
+
+Here we treat functions as first class citizens - just as any other modern language should. This means the ```let``` declaration works for functions as well, you just have to specify a function type.
+
+Here is an example that will help to understand the need of refined types and also the functions declaration:
+
+```
+let safeDivision be the Fn of Int (dividend is Natural, divisor is Int) => {
+    divisor/dividend
+}
+```
+Notice the B family of block scope. 
+
+Which can also be one liner:
+
+```
+let safeDivision be the Fn of Int (dividend is Natural, divisor is Int) => divisor/dividend;
+```
+
+So the function type is associated with a return type (specified after the ```of``` keyword) and a list of arguments. Again, back to the natural language idea - what type is the dividend? Why do we declare it using the colon notation?
+
+In order to make it simple, we specify the values with their types as they should - we say that the dividend parameter ```is``` of type Natural!
