@@ -18,7 +18,7 @@ let [NAME] : [UNIVERSE] = [VALUE]
 
 An equivalent way to do so in a more natural way:
 
-```
+```javascript
 let [NAME] be [UNIVERSE] = [VALUE]
 ```
 
@@ -26,7 +26,7 @@ That second way is a coold deal - everybody would understand it. Actually, [BCPL
 
 But what if we could achieve more? What if we could say to the machine that I want to ```let``` the name ```be the``` Integer 1? Directly saying that is allowed, like:
 
-```
+```javascript
 let value be the Int 1
 ```
 
@@ -42,7 +42,7 @@ Another core idea of the language is Refined/Dependent types. The idea that you 
 
 So, this idea was inspired by the book The little typer, in which the author descibres **PieLang**. In order to achieve some related experience, we brought the Universe value - a domain that other types belong to. This means we can write the following:
 
-```
+```javascript
 let Natural be the Universe Int > 0
 ```
 
@@ -56,7 +56,7 @@ Here we treat functions as first class citizens - just as any other modern langu
 
 Here is an example that will help to understand the need of refined types and also the functions declaration:
 
-```
+```javascript
 let safeDivision be the Fn of Int (dividend is Natural, divisor is Int) => {
     divisor/dividend
 }
@@ -65,7 +65,7 @@ Notice the B family of block scope.
 
 Which can also be one liner:
 
-```
+```javascript
 let safeDivision be the Fn of Int (dividend is Natural, divisor is Int) => divisor/dividend;
 ```
 
