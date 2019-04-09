@@ -40,11 +40,34 @@ grammar Lang is export  {
     rule declaration {
       | <type>
       | <product-type>
+      | <product-type-instantiation>
       | <fn-declaration>
       | <module-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
       | <value-or-identifier>
       | <expression>
+    }
+
+    rule product-type-instantiation {
+      | 'whose' <product-type-values>
+      | 'with' <product-type-direct-values>
+    }
+
+    rule product-type-direct-values {
+      <word>+ % <separator>
+    }
+
+    rule product-type-values {
+      <product-arg-values>+ % <separator>
+    }
+
+    token separator {
+      | ','
+      | 'and'
+    }
+
+    rule product-arg-values {
+      | <word> ['is' | ':'] <value-or-identifier>
     }
 
     rule product-type {
@@ -110,7 +133,7 @@ grammar Lang is export  {
     }
 
     rule fn-args {
-      <arguments>+ % ','
+      <fn-arg-decl>+ % ','
     }
 
     rule calling-arguments {
@@ -118,7 +141,7 @@ grammar Lang is export  {
       | <expression>
     }
 
-    rule arguments {
+    rule fn-arg-decl {
       | <word> ['is' | ':'] <type> '=' <value-or-identifier>
       | <word> ['is' | ':'] <type>
     }
@@ -153,6 +176,12 @@ grammar Lang is export  {
     token value-or-identifier {
       | <number>
       | <word>
+      | <quoted-string>
+    }
+
+    rule quoted-string {
+      | "'" <word> "'"
+      | '"' <word> '"'
     }
 
     token fn-name {

@@ -61,7 +61,7 @@ let safeDivision be the Fn of Int (dividend is Natural, divisor is Int) => {
     divisor/dividend
 }
 ```
-Notice the B family of block scope. 
+Notice the B family of block scope.
 
 Which can also be one liner:
 
@@ -72,3 +72,41 @@ let safeDivision be the Fn of Int (dividend is Natural, divisor is Int) => divis
 So the function type is associated with a return type (specified after the ```of``` keyword) and a list of arguments. Again, back to the natural language idea - what type is the dividend? Why do we declare it using the colon notation?
 
 In order to make it simple, we specify the values with their types as they should - we say that the dividend parameter ```is``` of type Natural!
+
+## Declaring a product type
+
+This is a tricky one - many people will call it a struct, some will call it a record. The product type idea is the one that better describes a conjunction of more than one named value.
+
+So, if you come from the C/Algol family, you may call it a Struct; if you come from F#, feel free to call it a Record. It's the same idea, except with a more natural way to declare it.
+
+Let's say you want to declare a type that has values. A normal person would say something like:
+
+> There is this value called X where the name y represents an int and the name z represents a String
+
+As of the language's philosophy, we try to bring that kind of declaration closer to reality. That is why, in order to declare a product type, one may say:
+
+```javascript
+let Animal be the Product where {
+  age is Int, name is String
+}
+```
+
+And we may then use it just like in any other language!
+
+```javascript
+let pet be Animal = {
+  age: 10,
+  name: 'luna'
+}
+```
+
+Of course, there is a #{LANG_NAME} way to do it. We *must* feel like we are talking to the computer; like it can understand us directly!
+
+```javascript
+let pet be the Animal where age is 10 and name is 'Nicolas'
+```
+
+And that will have the same effect as the first declaration. Neat, huh? :-)
+
+
+```A animal vs THE animal```

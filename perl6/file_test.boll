@@ -19,14 +19,16 @@ let test be the Module {
     x is Int, y is String
   }
 
-//Like the following...
-  let CommonDeclarationExample be Product = {
-    x is Int, y is String
+  let Animal be the Product where {
+    age is Int, name is String
   }
 
-//... and the natural way to declare 'em!
-  let SecondExample be the Product where {
-    x is Int, y is String
+//DAMNNNN
+//and also some dope syntax in orer to avoid repetetion
+  let getPet be the Fn of Animal (name is String, age is int) => {
+    let pet be the Animal whose age is age and name is name
+
+    let pet be the Animal with age, name
   }
 
 // We have some nice pattern match with guards :-)
