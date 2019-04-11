@@ -5,56 +5,7 @@ Those modifiers will have different behavior for each specified type. The follow
 
 # Code demonstration
 
-This is some code in #{LANG_NAME}. Cool, huh?
-
-```javascript
-let test be the Module {
-
-//  Let's say I want to have a  new declaration. We have three ways to do so:
-
-//  1. Allow the type Natural to be the Universe of value Int > 0
-  let Natural be the Universe Int > 0
-//  2. Allow int to be a Universe and attribute a direct value
-  let Natural be Universe = Int > 0
-//  3. Programmers
-  let Natural : Universe = Int > 0
-
-//We have sum types :-)
-  let sum_string_natural be Universe = (String | Natural)
-
-//We have product types ...
-  let product_type be Product = {
-    x is Int, y is String
-  }
-
-//... and the natural way to declare 'em!
-  let second_example be the Product where {
-    x is Int, y is String
-  }
-
-// This is a more-than-one-line function
-  let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
-    let ble be Natural = 1
-    let cle be Natural = 1
-  }
-
-// This is a more-than-one-line function
-  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
-
-// We have some nice pattern match with guards :-)
-// You can do this (as you would be able to in Crystal)
-  let anon_tagged_union be the Fn of (String | Int) (first is String, second is Int) => {
-    match second with
-      x when x > 20 => x
-      otherwise => first
-    end
-  }
-
-// This is just some value decl
-  let x be Natural = 1
-  let x be the Natural 1
-}
-```
+For some code samples, please refer to the ```examples``` folder.
 
 # Types
 
