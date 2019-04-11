@@ -1,0 +1,180 @@
+｢let test be the Module {
+
+//  Let's say I want to have a  new declaration. We have three ways to do so:
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
+
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+
+// Local Type Inference is a thing here.. Inspired by https://arxiv.org/pdf/1807.02132.pdf
+  let x be 1
+}｣
+ variable-declaration => ｢let test be the Module {
+
+//  Let's say I want to have a  new declaration. We have three ways to do so:
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
+
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+
+// Local Type Inference is a thing here.. Inspired by https://arxiv.org/pdf/1807.02132.pdf
+  let x be 1
+}｣
+  word => ｢test｣
+  type => ｢Module ｣
+  declaration => ｢{
+
+//  Let's say I want to have a  new declaration. We have three ways to do so:
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
+
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+
+// Local Type Inference is a thing here.. Inspired by https://arxiv.org/pdf/1807.02132.pdf
+  let x be 1
+}｣
+   module-declaration => ｢{
+
+//  Let's say I want to have a  new declaration. We have three ways to do so:
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
+
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+
+// Local Type Inference is a thing here.. Inspired by https://arxiv.org/pdf/1807.02132.pdf
+  let x be 1
+}｣
+    module-body => ｢let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }
+
+// This is a more-than-one-line function
+  let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2;
+
+// This is just some value decl
+  let x be Natural = 1
+  let x be the Natural 1
+
+// Local Type Inference is a thing here.. Inspired by https://arxiv.org/pdf/1807.02132.pdf
+  let x be 1｣
+     expression => ｢let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }｣
+      variable-declaration => ｢let division be the Fn of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }｣
+       word => ｢division｣
+       type => ｢Fn ｣
+       declaration => ｢of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }｣
+        fn-declaration => ｢of Int (dividend is Natural = 10, divisor is Int) => {
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }｣
+         type => ｢Int ｣
+         fn-args => ｢dividend is Natural = 10, divisor is Int｣
+          fn-arg-decl => ｢dividend is Natural = 10｣
+           word => ｢dividend｣
+           type => ｢Natural ｣
+           value-or-identifier => ｢10｣
+            number => ｢10｣
+          fn-arg-decl => ｢divisor is Int｣
+           word => ｢divisor｣
+           type => ｢Int｣
+         fn-body-formats => ｢{
+    let ble be Natural = 1
+    let cle be Natural = 1
+  }｣
+          fn-body => ｢let ble be Natural = 1
+    let cle be Natural = 1｣
+           expression => ｢let ble be Natural = 1｣
+            variable-declaration => ｢let ble be Natural = 1｣
+             word => ｢ble｣
+             type => ｢Natural ｣
+             declaration => ｢1｣
+              type => ｢1｣
+           expression => ｢let cle be Natural = 1｣
+            variable-declaration => ｢let cle be Natural = 1｣
+             word => ｢cle｣
+             type => ｢Natural ｣
+             declaration => ｢1｣
+              type => ｢1｣
+     expression => ｢let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2｣
+      variable-declaration => ｢let division be the Fn of Int (dividend is Natural, divisor is Int) => 1/2｣
+       word => ｢division｣
+       type => ｢Fn ｣
+       declaration => ｢of Int (dividend is Natural, divisor is Int) => 1/2｣
+        fn-declaration => ｢of Int (dividend is Natural, divisor is Int) => 1/2｣
+         type => ｢Int ｣
+         fn-args => ｢dividend is Natural, divisor is Int｣
+          fn-arg-decl => ｢dividend is Natural｣
+           word => ｢dividend｣
+           type => ｢Natural｣
+          fn-arg-decl => ｢divisor is Int｣
+           word => ｢divisor｣
+           type => ｢Int｣
+         fn-body-formats => ｢1/2｣
+          expression => ｢1/2｣
+           value-or-identifier => ｢1｣
+            number => ｢1｣
+           operator => ｢/｣
+           value-or-identifier => ｢2｣
+            number => ｢2｣
+     expression => ｢let x be Natural = 1｣
+      variable-declaration => ｢let x be Natural = 1｣
+       word => ｢x｣
+       type => ｢Natural ｣
+       declaration => ｢1｣
+        type => ｢1｣
+     expression => ｢let x be the Natural 1｣
+      variable-declaration => ｢let x be the Natural 1｣
+       word => ｢x｣
+       type => ｢Natural ｣
+       declaration => ｢1｣
+        type => ｢1｣
+     expression => ｢let x be 1｣
+      variable-declaration => ｢let x be 1｣
+       word => ｢x｣
+       declaration => ｢1｣
+        type => ｢1｣

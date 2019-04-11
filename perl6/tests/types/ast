@@ -1,0 +1,34 @@
+｢let Natural be the Universe Int > 0｣
+ variable-declaration => ｢let Natural be the Universe Int > 0｣
+  word => ｢Natural｣
+  type => ｢Universe ｣
+  declaration => ｢Int > 0｣
+   type => ｢Int > 0｣
+    comparator => ｢>｣
+    number => ｢0｣
+｢let Natural be Universe = Int > 0｣
+ variable-declaration => ｢let Natural be Universe = Int > 0｣
+  word => ｢Natural｣
+  type => ｢Universe ｣
+  declaration => ｢Int > 0｣
+   type => ｢Int > 0｣
+    comparator => ｢>｣
+    number => ｢0｣
+｢let Natural : Universe = Int > 0｣
+ variable-declaration => ｢let Natural : Universe = Int > 0｣
+  word => ｢Natural｣
+  type => ｢Universe ｣
+  declaration => ｢Int > 0｣
+   type => ｢Int > 0｣
+    comparator => ｢>｣
+    number => ｢0｣
+｢let sum_string_natural be Universe = (String | Natural)｣
+ variable-declaration => ｢let sum_string_natural be Universe = (String | Natural)｣
+  word => ｢sum_string_natural｣
+  type => ｢Universe ｣
+  declaration => ｢(String | Natural)｣
+   type => ｢(String | Natural)｣
+    sum-type-wrap => ｢(String | Natural)｣
+     sum-types => ｢String | Natural｣
+      type => ｢String ｣
+      type => ｢Natural｣

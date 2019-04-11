@@ -1,0 +1,75 @@
+｢let anon_tagged_union be the Fn of (String | Int) (first is String, second is Int) => {
+  match second with
+    x when x > 20 => x
+    otherwise => first
+  end
+}｣
+ variable-declaration => ｢let anon_tagged_union be the Fn of (String | Int) (first is String, second is Int) => {
+  match second with
+    x when x > 20 => x
+    otherwise => first
+  end
+}｣
+  word => ｢anon_tagged_union｣
+  type => ｢Fn ｣
+  declaration => ｢of (String | Int) (first is String, second is Int) => {
+  match second with
+    x when x > 20 => x
+    otherwise => first
+  end
+}｣
+   fn-declaration => ｢of (String | Int) (first is String, second is Int) => {
+  match second with
+    x when x > 20 => x
+    otherwise => first
+  end
+}｣
+    type => ｢(String | Int) ｣
+     sum-type-wrap => ｢(String | Int) ｣
+      sum-types => ｢String | Int｣
+       type => ｢String ｣
+       type => ｢Int｣
+    fn-args => ｢first is String, second is Int｣
+     fn-arg-decl => ｢first is String｣
+      word => ｢first｣
+      type => ｢String｣
+     fn-arg-decl => ｢second is Int｣
+      word => ｢second｣
+      type => ｢Int｣
+    fn-body-formats => ｢{
+  match second with
+    x when x > 20 => x
+    otherwise => first
+  end
+}｣
+     fn-body => ｢match second with
+    x when x > 20 => x
+    otherwise => first
+  end｣
+      expression => ｢match second with
+    x when x > 20 => x
+    otherwise => first
+  end｣
+       pattern-match => ｢match second with
+    x when x > 20 => x
+    otherwise => first
+  end｣
+        word => ｢second｣
+        pattern-match-clauses => ｢x when x > 20 => x
+    otherwise => first｣
+         pattern-match-clause-brace => ｢x when x > 20 => x｣
+          pattern-clause => ｢x when x > 20 ｣
+           word => ｢x｣
+           expression => ｢x > 20 ｣
+            value-or-identifier => ｢x｣
+             word => ｢x｣
+            comparator => ｢>｣
+            value-or-identifier => ｢20｣
+             number => ｢20｣
+          pattern-match-clause-brace-value => ｢x｣
+           word => ｢x｣
+         pattern-match-clause-brace => ｢otherwise => first｣
+          pattern-clause => ｢otherwise ｣
+           word => ｢otherwise｣
+          pattern-match-clause-brace-value => ｢first｣
+           word => ｢first｣

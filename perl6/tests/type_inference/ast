@@ -1,0 +1,31 @@
+｢let print_animal_name be the Fn of String (pet is Animal) => {
+  let value be pet.age
+}｣
+ variable-declaration => ｢let print_animal_name be the Fn of String (pet is Animal) => {
+  let value be pet.age
+}｣
+  word => ｢print_animal_name｣
+  type => ｢Fn ｣
+  declaration => ｢of String (pet is Animal) => {
+  let value be pet.age
+}｣
+   fn-declaration => ｢of String (pet is Animal) => {
+  let value be pet.age
+}｣
+    type => ｢String ｣
+    fn-args => ｢pet is Animal｣
+     fn-arg-decl => ｢pet is Animal｣
+      word => ｢pet｣
+      type => ｢Animal｣
+    fn-body-formats => ｢{
+  let value be pet.age
+}｣
+     fn-body => ｢let value be pet.age｣
+      expression => ｢let value be pet.age｣
+       variable-declaration => ｢let value be pet.age｣
+        word => ｢value｣
+        declaration => ｢pet.age｣
+         expression => ｢pet.age｣
+          product-member-access => ｢pet.age｣
+           word => ｢pet｣
+           word => ｢age｣

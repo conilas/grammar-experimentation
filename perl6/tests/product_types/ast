@@ -1,0 +1,85 @@
+｢let Animal be the Product where {
+  age is Int, name is String
+}｣
+ variable-declaration => ｢let Animal be the Product where {
+  age is Int, name is String
+}｣
+  word => ｢Animal｣
+  type => ｢Product ｣
+  declaration => ｢where {
+  age is Int, name is String
+}｣
+   product-type => ｢where {
+  age is Int, name is String
+}｣
+    fn-args => ｢age is Int, name is String｣
+     fn-arg-decl => ｢age is Int｣
+      word => ｢age｣
+      type => ｢Int｣
+     fn-arg-decl => ｢name is String｣
+      word => ｢name｣
+      type => ｢String｣
+｢let get_pet be the Fn of Animal (name is String, age is int) => {
+  let pet be the Animal whose age is age and name is name
+
+  let pet be the Animal with age, name
+}｣
+ variable-declaration => ｢let get_pet be the Fn of Animal (name is String, age is int) => {
+  let pet be the Animal whose age is age and name is name
+
+  let pet be the Animal with age, name
+}｣
+  word => ｢get_pet｣
+  type => ｢Fn ｣
+  declaration => ｢of Animal (name is String, age is int) => {
+  let pet be the Animal whose age is age and name is name
+
+  let pet be the Animal with age, name
+}｣
+   fn-declaration => ｢of Animal (name is String, age is int) => {
+  let pet be the Animal whose age is age and name is name
+
+  let pet be the Animal with age, name
+}｣
+    type => ｢Animal ｣
+    fn-args => ｢name is String, age is int｣
+     fn-arg-decl => ｢name is String｣
+      word => ｢name｣
+      type => ｢String｣
+     fn-arg-decl => ｢age is int｣
+      word => ｢age｣
+      type => ｢int｣
+    fn-body-formats => ｢{
+  let pet be the Animal whose age is age and name is name
+
+  let pet be the Animal with age, name
+}｣
+     fn-body => ｢let pet be the Animal whose age is age and name is name
+
+  let pet be the Animal with age, name｣
+      expression => ｢let pet be the Animal whose age is age and name is name｣
+       variable-declaration => ｢let pet be the Animal whose age is age and name is name｣
+        word => ｢pet｣
+        type => ｢Animal ｣
+        declaration => ｢whose age is age and name is name｣
+         product-type-instantiation => ｢whose age is age and name is name｣
+          product-type-values => ｢age is age and name is name｣
+           product-arg-values => ｢age is age ｣
+            word => ｢age｣
+            value-or-identifier => ｢age｣
+             word => ｢age｣
+           separator => ｢and｣
+           product-arg-values => ｢name is name｣
+            word => ｢name｣
+            value-or-identifier => ｢name｣
+             word => ｢name｣
+      expression => ｢let pet be the Animal with age, name｣
+       variable-declaration => ｢let pet be the Animal with age, name｣
+        word => ｢pet｣
+        type => ｢Animal ｣
+        declaration => ｢with age, name｣
+         product-type-instantiation => ｢with age, name｣
+          product-type-direct-values => ｢age, name｣
+           word => ｢age｣
+           separator => ｢,｣
+           word => ｢name｣

@@ -1,6 +1,6 @@
 unit module grammar;
 # no precompilation;
-# use Grammar::ErrorReporting;
+# use Grammar::Tracer;
 
 grammar Lang is export  {
     rule TOP {
@@ -38,6 +38,7 @@ grammar Lang is export  {
     }
 
     rule declaration {
+      | <expression>
       | <type>
       | <product-type>
       | <product-type-instantiation>
@@ -45,7 +46,6 @@ grammar Lang is export  {
       | <module-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
       | <value-or-identifier>
-      | <expression>
     }
 
     rule product-type-instantiation {
@@ -100,14 +100,19 @@ grammar Lang is export  {
       | <variable-declaration>
       | <value-or-identifier> <operator> <value-or-identifier>
       | <value-or-identifier> <comparator> <value-or-identifier>
+      | <product-member-access>
       | <pattern-match>
       | <fn-call>
       | <conditional>
     }
 
+    rule product-member-access {
+      | <word> "." <word>
+    }
+
     rule conditional {
-      | 'if' <expression> 'then' <.eol> <expression> <.eol> 'else' <.eol> <expression> <.eol> 'end'
-      | 'if' <expression> 'then' <.eol> <expression> <.eol> 'end'
+      | 'if' <expression> '{' <.eol> <expression> <.eol> '}' 'else' '{' <.eol> <expression> <.eol> '}'
+      | 'if' <expression> '{' <.eol> <expression> <.eol> '}'
     }
 
     rule pattern-match {
@@ -174,6 +179,7 @@ grammar Lang is export  {
     }
 
     token value-or-identifier {
+      | <product-member-access>
       | <number>
       | <word>
       | <quoted-string>

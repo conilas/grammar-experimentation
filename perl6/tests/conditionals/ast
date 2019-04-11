@@ -1,0 +1,95 @@
+｢let division be the Fn of Int (pet is Animal) => {
+  let age be pet.age
+
+  if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }
+}｣
+ variable-declaration => ｢let division be the Fn of Int (pet is Animal) => {
+  let age be pet.age
+
+  if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }
+}｣
+  word => ｢division｣
+  type => ｢Fn ｣
+  declaration => ｢of Int (pet is Animal) => {
+  let age be pet.age
+
+  if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }
+}｣
+   fn-declaration => ｢of Int (pet is Animal) => {
+  let age be pet.age
+
+  if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }
+}｣
+    type => ｢Int ｣
+    fn-args => ｢pet is Animal｣
+     fn-arg-decl => ｢pet is Animal｣
+      word => ｢pet｣
+      type => ｢Animal｣
+    fn-body-formats => ｢{
+  let age be pet.age
+
+  if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }
+}｣
+     fn-body => ｢let age be pet.age
+
+  if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }｣
+      expression => ｢let age be pet.age｣
+       variable-declaration => ｢let age be pet.age｣
+        word => ｢age｣
+        declaration => ｢pet.age｣
+         expression => ｢pet.age｣
+          product-member-access => ｢pet.age｣
+           word => ｢pet｣
+           word => ｢age｣
+      expression => ｢if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }｣
+       conditional => ｢if age > 10 {
+    pet.age
+  } else {
+    pet.age + 10
+  }｣
+        expression => ｢age > 10 ｣
+         value-or-identifier => ｢age｣
+          word => ｢age｣
+         comparator => ｢>｣
+         value-or-identifier => ｢10｣
+          number => ｢10｣
+        expression => ｢pet.age｣
+         product-member-access => ｢pet.age｣
+          word => ｢pet｣
+          word => ｢age｣
+        expression => ｢pet.age + 10｣
+         value-or-identifier => ｢pet.age ｣
+          product-member-access => ｢pet.age ｣
+           word => ｢pet｣
+           word => ｢age｣
+         operator => ｢+｣
+         value-or-identifier => ｢10｣
+          number => ｢10｣

@@ -1,7 +1,7 @@
 use lib '.';
 use grammar;
 
-my $fh = open "file_test.boll", :r;
+my $fh = open "./tests/conditionals/conditionals.boll", :r;
 my $test = $fh.slurp;
 $fh.close;
 
