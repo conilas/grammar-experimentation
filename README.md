@@ -1,7 +1,12 @@
-# Grammar
+# {LANG_NAME}
 
-This project folder will try and describe a possible grammar for the language I'm working on. Since I have to work with dependent/refined types (and keep) the rest of it as familiar as possible, I'll try to use a grammar with common types (Int, String, Bool, etc) and they will have a few modifiers.
-Those modifiers will have different behavior for each specified type. The following piece documents some of the possibilities about the types.
+This project contains a parser for the language I'm working on. Still don't have a name. The idea of the project is to use dependent/refined types, current features of modern languages (pattern matching, expression-oriented, ADTs - union, products and such, ...) and add a close-to-human syntax. 
+
+The syntax documentation is in ```syntax.md``` file. This file will document the project structure, the goals and inspirations for this project.
+
+# Project structure
+
+```TBD``` :-)
 
 # Code demonstration
 
