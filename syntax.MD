@@ -103,10 +103,12 @@ let pet be Animal = {
 Of course, there is a #{LANG_NAME} way to do it. We *must* feel like we are talking to the computer; like it can understand us directly!
 
 ```javascript
-let pet be the Animal where age is 10 and name is 'Nicolas'
+let pet be the Animal whose age is 10 and name is 'Nicolas'
 ```
 
 And that will have the same effect as the first declaration. Neat, huh? :-)
 
+
+//TODO: Document the 'with' keyword for that case (in order to avoid repetition)
 
 ```A animal vs THE animal```
