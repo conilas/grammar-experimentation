@@ -7,34 +7,20 @@ grammar Lang is export  {
       | <statement>* %% <.eol>
     }
 
-    token ws {
-      <!ww> \h*
-    }
-
-    token eol {
-       [ [ <[\/\/;]> \N* ]? \n ]+
-   }
-
     rule statement {
       | <variable-declaration>
       | <expression>
-      | 'class' <word> '{' <.eol> <class-statements>* % <.eol> <.eol> '}'
-    }
-
-    rule class-statements {
-      | 'prop' <word> 'be' <type>
-      | <variable-declaration>
     }
 
     rule fn-call {
-      <fn-name> '(' <calling-arguments>* ')'
+      <fn-name> <lparen> <calling-arguments>* <rparen>
     }
 
     rule variable-declaration {
-      | 'let' <word> ['be' | ':'] <type> '=' <declaration>
-      | 'let' <word> ['be the' | ':'] <type> <declaration>
-      | 'let' <word> 'be' <declaration>
-      | 'let' <word> '=' <declaration>
+      | <let> <word> [<be> | <colon>] <type> <equal> <declaration>
+      | <let> <word> [<be> <the> | <colon>] <type> <declaration>
+      | <let> <word> <be> <declaration>
+      | <let> <word> <equal> <declaration>
     }
 
     rule declaration {
@@ -49,8 +35,8 @@ grammar Lang is export  {
     }
 
     rule product-type-instantiation {
-      | 'whose' <product-type-values>
-      | 'with' <product-type-direct-values>
+      | <whose> <product-type-values>
+      | <with> <product-type-direct-values>
     }
 
     rule product-type-direct-values {
@@ -62,29 +48,29 @@ grammar Lang is export  {
     }
 
     token separator {
-      | ','
-      | 'and'
+      | <comma>
+      | <and>
     }
 
     rule product-arg-values {
-      | <word> ['is' | ':'] <value-or-identifier>
+      | <word> [<is> | <colon>] <value-or-identifier>
     }
 
     rule product-type {
-      | 'where' '{' <.eol> <fn-args> <.eol> '}'
-      | '{' <.eol> <fn-args> <.eol> '}'
+      | <where> <lbrace> <.eol> <fn-args> <.eol> <rbrace>
+      | <lbrace> <.eol> <fn-args> <.eol> <rbrace>
     }
 
     rule module-declaration {
-      | '{' <.eol> <module-body> <.eol>  '}'
+      | <lbrace> <.eol> <module-body> <.eol>  <rbrace>
     }
 
     rule fn-declaration {
-      | ['of' | ':'] <type> '(' <fn-args>* ')' '=>' <fn-body-formats>
+      | [<of> | <colon>] <type> <lparen> <fn-args>* <rparen> <arrow> <fn-body-formats>
     }
 
     rule fn-body-formats {
-      | '{' <.eol> <fn-body> <.eol> '}'
+      | <lbrace> <.eol> <fn-body> <.eol> <rbrace>
       | <expression>
     }
 
@@ -107,20 +93,20 @@ grammar Lang is export  {
     }
 
     rule product-member-access {
-      | <word> "." <word>
+      | <word> <dot> <word>
     }
 
     rule conditional {
-      | 'if' <expression> '{' <.eol> <expression> <.eol> '}' 'else' '{' <.eol> <expression> <.eol> '}'
-      | 'if' <expression> '{' <.eol> <expression> <.eol> '}'
+      | <iff> <expression> <lbrace> <.eol> <expression> <.eol> <rbrace> <else> <lbrace> <.eol> <expression> <.eol> <rbrace>
+      | <iff> <expression> <lbrace> <.eol> <expression> <.eol> <rbrace>
     }
 
     rule pattern-match {
-      'match' <word> 'with' <.eol> <pattern-match-clauses> <.eol> 'end'
+      <match> <word> <with> <.eol> <pattern-match-clauses> <.eol> <end>
     }
 
     rule pattern-clause {
-      | <word> 'when' <expression>
+      | <word> <when> <expression>
       | <word>
     }
 
@@ -129,7 +115,7 @@ grammar Lang is export  {
     }
 
     rule pattern-match-clause-brace {
-      <pattern-clause> '=>' <pattern-match-clause-brace-value>
+      <pattern-clause> <arrow> <pattern-match-clause-brace-value>
     }
 
     rule pattern-match-clause-brace-value {
@@ -138,47 +124,39 @@ grammar Lang is export  {
     }
 
     rule fn-args {
-      <fn-arg-decl>+ % ','
+      <fn-arg-decl>+ % <colon>
     }
 
     rule calling-arguments {
-      | <value-or-identifier>+ % ','
+      | <value-or-identifier>+ % <colon>
       | <expression>
     }
 
     rule fn-arg-decl {
-      | <word> ['is' | ':'] <type> '=' <value-or-identifier>
-      | <word> ['is' | ':'] <type>
+      | <word> [<is> | <colon>] <type> <equal> <value-or-identifier>
+      | <word> [<is> | <colon>] <type>
     }
 
     rule type {
-      | Int <comparator> <number>
-      | Int '~'
-      | Int
-      | Fn
-      | String
-      | Universe
-      | Module
-      | '?'
+      | <int-type> <comparator> <number>
+      | <int-type>
+      | <fn-type>
+      | <string-type>
+      | <universe-type>
+      | <module-type>
       | <sum-type-wrap>
       | \w+
     }
 
     rule sum-type-wrap {
-      '(' <sum-types> ')'
+      <lparen> <sum-types> <rparen>
     }
 
     rule sum-types {
-      <type>+ % '|'
+      <type>+ % <pipe>
     }
 
-    token operator {
-      | '+'
-      | '-'
-      | '/'
-    }
-
-    token value-or-identifier {
+    rule value-or-identifier {
       | <product-member-access>
       | <number>
       | <word>
@@ -186,12 +164,39 @@ grammar Lang is export  {
     }
 
     rule quoted-string {
-      | "'" <word> "'"
-      | '"' <word> '"'
+      | <quote-char> <word> <quote-char>
+      | <quote-char> <word> <quote-char>
     }
 
-    token fn-name {
+    rule fn-name {
       <word>
+    }
+
+    rule comparator {
+      | <greater>
+      | <smaller>
+    }
+
+    rule operator {
+      | <division>
+      | <minus>
+      | <plus>
+    }
+
+    ###########################################################################
+    #
+    # TOKENS OF THE LANGUAGE - Despite it is not necessary to separate all
+    # tokens on the perl grammar, it helps organizing code & will help building
+    # parsers with actual lexers
+    #
+    ###########################################################################
+
+    token ws {
+      <!ww> \h*
+    }
+
+    token eol {
+       [ [ <[\/\/;]> \N* ]? \n ]+
     }
 
     token word {
@@ -202,9 +207,144 @@ grammar Lang is export  {
       \d+
     }
 
-    token comparator {
-      | '>'
-      | '<'
+    token match {
+      'match'
     }
 
+    token end {
+      'end'
+    }
+
+    token when {
+      'when'
+    }
+
+    token dot {
+      '.'
+    }
+
+    token where {
+      'where'
+    }
+
+    token iff {
+      'if'
+    }
+
+    token else {
+      'else'
+    }
+
+    token arrow {
+      '=>'
+    }
+
+    token of {
+      'of'
+    }
+
+    token and {
+      'and'
+    }
+
+    token whose {
+      'whose'
+    }
+
+    token with {
+      'with'
+    }
+
+    token comma {
+      ','
+    }
+
+    token equal {
+      '='
+    }
+
+    token colon {
+      ':'
+    }
+
+    token the {
+      'the'
+    }
+
+    token be {
+      'be'
+    }
+
+    token let {
+      'let'
+    }
+
+    token is {
+      'is'
+    }
+
+    token fn-type {
+      'Fn'
+    }
+
+    token string-type {
+      'String'
+    }
+
+    token universe-type {
+      'Universe'
+    }
+
+    token module-type {
+      'Module'
+    }
+
+    token int-type {
+      'Int'
+    }
+
+    token lparen {
+      '('
+    }
+
+    token rparen {
+      ')'
+    }
+
+    token lbrace {
+      '{'
+    }
+
+    token rbrace {
+      '}'
+    }
+
+    token pipe {
+      '|'
+    }
+
+    token quote-char {
+      | "'"
+      | '"'
+    }
+
+    token division {
+      '/'
+    }
+
+    token minus {
+      '-'
+    }
+
+    token plus {
+      '+'
+    }
+
+    token greater {
+      '>'
+    }
+
+    token smaller {
+      '<'
+    }
 }
