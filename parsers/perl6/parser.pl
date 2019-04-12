@@ -1,7 +1,7 @@
 use lib '.';
 use grammar;
 
-my $fh = open "./tests/conditionals/conditionals.boll", :r;
+my $fh = open "../../examples/type_inference/local_type_inference.js", :r;
 my $test = $fh.slurp;
 $fh.close;
 
