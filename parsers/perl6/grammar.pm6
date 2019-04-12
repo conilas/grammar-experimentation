@@ -57,6 +57,7 @@ grammar Lang is export  {
     }
 
     rule product-type {
+      | <where> <fn-args>
       | <where> <lbrace> <.eol> <fn-args> <.eol> <rbrace>
       | <lbrace> <.eol> <fn-args> <.eol> <rbrace>
     }
@@ -124,7 +125,7 @@ grammar Lang is export  {
     }
 
     rule fn-args {
-      <fn-arg-decl>+ % <colon>
+      <fn-arg-decl>+ % <comma>
     }
 
     rule calling-arguments {
