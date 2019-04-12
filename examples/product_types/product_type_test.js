@@ -1,6 +1,4 @@
-let Animal be the Product where {
-  age is Int, name is String
-}
+let Animal be the Product where age is Int, name is String
 
 //DAMNNNN
 //and also some dope syntax in orer to avoid repetetion
