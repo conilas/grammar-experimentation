@@ -1,6 +1,6 @@
 # {LANG_NAME}
 
-This project contains a parser for the language I'm working on. Still don't have a name. The idea of the project is to use dependent/refined types, current features of modern languages (pattern matching, expression-oriented, ADTs - union, products and such, ...) and add a close-to-human syntax. 
+This project contains a parser for the language I'm working on. Still don't have a name. The idea of the project is to use dependent/refined types, current features of modern languages (pattern matching, expression-oriented, ADTs - union, products and such, ...) and add a close-to-human syntax.
 
 The syntax documentation is in ```syntax.md``` file. This file will document the project structure, the goals and inspirations for this project.
 
@@ -19,6 +19,8 @@ For some code samples, please refer to the ```examples``` folder.
 * Product types; (Inspired by records in F# or structs in Rust)
 * Sum types; (Inspired by Crystal and Pony)
 * Refined types; (Liquid haskell inspired, but not that advanced)
+  * Refined ints added with comparators;
+  * Refined strings added based on https://github.com/Microsoft/BosqueLanguage/blob/master/docs/language/overview.md#1.1.2-Typed-Strings
 * Modules; (Still defining. Maybe mesa-like?)
 * Higher-order types; (Inspired by The Little Typer and its PieLang)
 * Higher-order function; (The syntax of function declaration is heavily inspired by JS)
