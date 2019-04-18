@@ -1,6 +1,4 @@
 unit module grammar;
-# no precompilation;
-# use Grammar::Tracer;
 
 grammar Lang is export  {
     rule TOP {
@@ -142,12 +140,26 @@ grammar Lang is export  {
       | <int-type> <comparator> <number>
       | <int-type>
       | <fn-type>
+      | <refined-string-type>
       | <string-type>
       | <universe-type>
       | <module-type>
       | <sum-type-wrap>
       | \w+
     }
+
+    rule refined-string-type {
+      | <string-type> <where> <string-refination-parameters>
+    }
+
+    rule string-refination-parameters {
+      <string-refination-param-decl> +% <and>
+    }
+
+    rule string-refination-param-decl {
+      | <word> [<is> | <colon>] <value-or-identifier>
+    }
+
 
     rule sum-type-wrap {
       <lparen> <sum-types> <rparen>
@@ -166,7 +178,8 @@ grammar Lang is export  {
 
     rule quoted-string {
       | <quote-char> <word> <quote-char>
-      | <quote-char> <word> <quote-char>
+      | <quote-char> <any> <quote-char>
+
     }
 
     rule fn-name {
@@ -202,6 +215,22 @@ grammar Lang is export  {
 
     token word {
       \w+
+    }
+
+    token any {
+      | <word>
+      | d<number> <separators>* d<number>
+    }
+
+    token separators {
+      | \-
+      | \*
+      | \(
+      | \)
+      | \#
+      | \$
+      | \%
+      | \,
     }
 
     token number {

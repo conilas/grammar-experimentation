@@ -1,0 +1,115 @@
+｢let Zipcode be the Universe String where length is 14 and format is "d9*d3" ｣
+ variable-declaration => ｢let Zipcode be the Universe String where length is 14 and format is "d9*d3" ｣
+  let => ｢let｣
+  word => ｢Zipcode｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Universe ｣
+   universe-type => ｢Universe｣
+  declaration => ｢String where length is 14 and format is "d9*d3" ｣
+   type => ｢String where length is 14 and format is "d9*d3" ｣
+    refined-string-type => ｢String where length is 14 and format is "d9*d3" ｣
+     string-type => ｢String｣
+     where => ｢where｣
+     string-refination-parameters => ｢length is 14 and format is "d9*d3" ｣
+      string-refination-param-decl => ｢length is 14 ｣
+       word => ｢length｣
+       is => ｢is｣
+       value-or-identifier => ｢14 ｣
+        number => ｢14｣
+      and => ｢and｣
+      string-refination-param-decl => ｢format is "d9*d3" ｣
+       word => ｢format｣
+       is => ｢is｣
+       value-or-identifier => ｢"d9*d3" ｣
+        quoted-string => ｢"d9*d3" ｣
+         quote-char => ｢"｣
+         any => ｢d9*d3｣
+          number => ｢9｣
+          separators => ｢*｣
+          number => ｢3｣
+         quote-char => ｢"｣
+｢let Price be the Universe String where format is "d1,d1" ｣
+ variable-declaration => ｢let Price be the Universe String where format is "d1,d1" ｣
+  let => ｢let｣
+  word => ｢Price｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Universe ｣
+   universe-type => ｢Universe｣
+  declaration => ｢String where format is "d1,d1" ｣
+   type => ｢String where format is "d1,d1" ｣
+    refined-string-type => ｢String where format is "d1,d1" ｣
+     string-type => ｢String｣
+     where => ｢where｣
+     string-refination-parameters => ｢format is "d1,d1" ｣
+      string-refination-param-decl => ｢format is "d1,d1" ｣
+       word => ｢format｣
+       is => ｢is｣
+       value-or-identifier => ｢"d1,d1" ｣
+        quoted-string => ｢"d1,d1" ｣
+         quote-char => ｢"｣
+         any => ｢d1,d1｣
+          number => ｢1｣
+          separators => ｢,｣
+          number => ｢1｣
+         quote-char => ｢"｣
+｢let Purchase be the Product where zipcode is Zipcode, price is Price｣
+ variable-declaration => ｢let Purchase be the Product where zipcode is Zipcode, price is Price｣
+  let => ｢let｣
+  word => ｢Purchase｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Product ｣
+  declaration => ｢where zipcode is Zipcode, price is Price｣
+   product-type => ｢where zipcode is Zipcode, price is Price｣
+    where => ｢where｣
+    fn-args => ｢zipcode is Zipcode, price is Price｣
+     fn-arg-decl => ｢zipcode is Zipcode｣
+      word => ｢zipcode｣
+      is => ｢is｣
+      type => ｢Zipcode｣
+     comma => ｢,｣
+     fn-arg-decl => ｢price is Price｣
+      word => ｢price｣
+      is => ｢is｣
+      type => ｢Price｣
+｢let calc_ship be the Fn of Price (purchase is Purchase) => {
+  purchase.price //pretend we've done some extensive calculation
+}｣
+ variable-declaration => ｢let calc_ship be the Fn of Price (purchase is Purchase) => {
+  purchase.price //pretend we've done some extensive calculation
+}｣
+  let => ｢let｣
+  word => ｢calc_ship｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Fn ｣
+   fn-type => ｢Fn｣
+  declaration => ｢of Price (purchase is Purchase) => {
+  purchase.price //pretend we've done some extensive calculation
+}｣
+   fn-declaration => ｢of Price (purchase is Purchase) => {
+  purchase.price //pretend we've done some extensive calculation
+}｣
+    of => ｢of｣
+    type => ｢Price ｣
+    lparen => ｢(｣
+    fn-args => ｢purchase is Purchase｣
+     fn-arg-decl => ｢purchase is Purchase｣
+      word => ｢purchase｣
+      is => ｢is｣
+      type => ｢Purchase｣
+    rparen => ｢)｣
+    arrow => ｢=>｣
+    fn-body-formats => ｢{
+  purchase.price //pretend we've done some extensive calculation
+}｣
+     lbrace => ｢{｣
+     fn-body => ｢purchase.price ｣
+      expression => ｢purchase.price ｣
+       product-member-access => ｢purchase.price ｣
+        word => ｢purchase｣
+        dot => ｢.｣
+        word => ｢price｣
+     rbrace => ｢}｣

@@ -1,11 +1,11 @@
 use lib '.';
 use grammar;
 
-my $fh = open "../../examples/product_types/product_type_test.js", :r;
+my $fh = open "../../examples/refined_strings/refined_strings_test.js", :r;
 my $test = $fh.slurp;
 $fh.close;
 
-my $parse_tree = Lang.parse($test);
+my $parse_tree = Lang.parse($test); 
 
 for $parse_tree<statement> -> $match {
   say $match
