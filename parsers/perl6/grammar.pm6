@@ -1,5 +1,6 @@
 unit module grammar;
-
+# no precompilation;
+# use Grammar::Tracer;
 grammar Lang is export  {
     rule TOP {
       | <statement>* %% <.eol>
@@ -55,9 +56,19 @@ grammar Lang is export  {
     }
 
     rule product-type {
+      | <having> <type-list>
       | <where> <fn-args>
       | <where> <lbrace> <.eol> <fn-args> <.eol> <rbrace>
       | <lbrace> <.eol> <fn-args> <.eol> <rbrace>
+    }
+
+    rule type-list {
+      <type>+ % <arg-separator>
+    }
+
+    rule arg-separator {
+      | <comma>
+      | <and>
     }
 
     rule module-declaration {
@@ -157,7 +168,7 @@ grammar Lang is export  {
     }
 
     rule string-refination-param-decl {
-      | <word> [<is> | <colon>] <value-or-identifier>
+      | <word> [<is> | <colon> | <comparator>] <value-or-identifier>
     }
 
 
@@ -235,6 +246,10 @@ grammar Lang is export  {
 
     token number {
       \d+
+    }
+
+    token having {
+      'having'
     }
 
     token match {
