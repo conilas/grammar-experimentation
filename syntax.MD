@@ -112,3 +112,5 @@ And that will have the same effect as the first declaration. Neat, huh? :-)
 //TODO: Document the 'with' keyword for that case (in order to avoid repetition)
 
 ```A animal vs THE animal```
+
+//TODO: Document the refined strings idea
