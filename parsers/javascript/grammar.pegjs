@@ -1,15 +1,5 @@
-JSON_text = ws value:value ws { return value; }
-
-begin_array     = ws "[" ws
-begin_object    = ws "{" ws
-end_array       = ws "]" ws
-end_object      = ws "}" ws
-name_separator  = ws ":" ws
-value_separator = ws "," ws
-
-ws "whitespace" = [ \t\n\r]*
-
-// ----- 3. Values -----
+//top level declaration
+program = ws value:value ws { return value; }
 
 value
   = false
@@ -17,67 +7,40 @@ value
   / phrase
   / null
   / true
-  / object
-  / array
   / number
+
+// ----- declarations -----
+
+phrase = phrase:"let" space bind_name:word space "be the" space type_bind:word space "having" space arg_list_bind:arg_list {
+	return "Now " + bind_name + " is " + type_bind + " with " + arg_list_bind
+}
+
+arg_list = values:(word separator)+ {
+    const head = (v) => v[0]
+    return values.map(head);
+}
+separator =
+		"," space
+    / space "and" space
+
+// ----- helpers -----
+
+space = " "
+
+word = exp:letter+ {
+	return [ exp.join('') ][0];
+}
+
+letter = [a-zA-Z0-9]
+
+ws "whitespace" = [ \t\n\r]*
 
 false = "false" { return false; }
 null  = "null"  { return null;  }
 true  = "true"  { return true;  }
 
-// ----- 4. Objects -----
 
-phrase = phrase:"let" space bind_name:word space "be the" space type_bind:word space "having" space arg_list_bind:arg_list {
-	return "Now " + bind_name + " is " + type_bind + " with " + arg_list_bind
-}
-arg_list = values:(word separator)+ {
-    return [ values.join('') ].filter(x => x.length > 0);
-}
-separator =
-		"," space
-        / space "and" space
-space = " "
-word = exp:letter+ {
-	return [ exp.join('') ][0];
-}
-letter = [a-zA-Z0-9]
-
-object
-  = begin_object
-    members:(
-      head:member
-      tail:(value_separator m:member { return m; })*
-      {
-        var result = {};
-
-        [head].concat(tail).forEach(function(element) {
-          result[element.name] = element.value;
-        });
-
-        return result;
-      }
-    )?
-    end_object
-    { return members !== null ? members: {}; }
-
-member
-  = name:string name_separator value:value {
-      return { name: name, value: value };
-    }
-
-// ----- 5. Arrays -----
-
-array
-  = begin_array
-    values:(
-      head:value
-      tail:(value_separator v:value { return v; })*
-      { return [head].concat(tail); }
-    )?
-    end_array
-    { return values !== null ? values : []; }
-
-// ----- 6. Numbers -----
+// ----- Numbers -----
 
 number "number"
   = minus? int frac? exp? { return parseFloat(text()); }
@@ -109,7 +72,7 @@ plus
 zero
   = "0"
 
-// ----- 7. Strings -----
+// ----- Strings -----
 
 string "string"
   = quotation_mark chars:char* quotation_mark { return chars.join(""); }
