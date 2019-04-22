@@ -54,6 +54,26 @@
           separators => ｢,｣
           number => ｢1｣
          quote-char => ｢"｣
+｢let Name be the Universe String where length < 15｣
+ variable-declaration => ｢let Name be the Universe String where length < 15｣
+  let => ｢let｣
+  word => ｢Name｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Universe ｣
+   universe-type => ｢Universe｣
+  declaration => ｢String where length < 15｣
+   type => ｢String where length < 15｣
+    refined-string-type => ｢String where length < 15｣
+     string-type => ｢String｣
+     where => ｢where｣
+     string-refination-parameters => ｢length < 15｣
+      string-refination-param-decl => ｢length < 15｣
+       word => ｢length｣
+       comparator => ｢< ｣
+        smaller => ｢<｣
+       value-or-identifier => ｢15｣
+        number => ｢15｣
 ｢let Purchase be the Product where zipcode is Zipcode, price is Price｣
  variable-declaration => ｢let Purchase be the Product where zipcode is Zipcode, price is Price｣
   let => ｢let｣
@@ -74,10 +94,58 @@
       word => ｢price｣
       is => ｢is｣
       type => ｢Price｣
-｢let calc_ship be the Fn of Price (purchase is Purchase) => {
+｢let Purchase be the Product where {
+  zipcode is Zipcode, price is Price
+}｣
+ variable-declaration => ｢let Purchase be the Product where {
+  zipcode is Zipcode, price is Price
+}｣
+  let => ｢let｣
+  word => ｢Purchase｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Product ｣
+  declaration => ｢where {
+  zipcode is Zipcode, price is Price
+}｣
+   product-type => ｢where {
+  zipcode is Zipcode, price is Price
+}｣
+    where => ｢where｣
+    lbrace => ｢{｣
+    fn-args => ｢zipcode is Zipcode, price is Price｣
+     fn-arg-decl => ｢zipcode is Zipcode｣
+      word => ｢zipcode｣
+      is => ｢is｣
+      type => ｢Zipcode｣
+     comma => ｢,｣
+     fn-arg-decl => ｢price is Price｣
+      word => ｢price｣
+      is => ｢is｣
+      type => ｢Price｣
+    rbrace => ｢}｣
+｢let Purchase be the Product having Zipcode, Price and Name｣
+ variable-declaration => ｢let Purchase be the Product having Zipcode, Price and Name｣
+  let => ｢let｣
+  word => ｢Purchase｣
+  be => ｢be｣
+  the => ｢the｣
+  type => ｢Product ｣
+  declaration => ｢having Zipcode, Price and Name｣
+   product-type => ｢having Zipcode, Price and Name｣
+    having => ｢having｣
+    type-list => ｢Zipcode, Price and Name｣
+     type => ｢Zipcode｣
+     arg-separator => ｢, ｣
+      comma => ｢,｣
+     type => ｢Price ｣
+     arg-separator => ｢and ｣
+      and => ｢and｣
+     type => ｢Name｣
+｢let calc_ship be the Fn :Price (purchase is Purchase) => {
   purchase.price //pretend we've done some extensive calculation
 }｣
- variable-declaration => ｢let calc_ship be the Fn of Price (purchase is Purchase) => {
+ variable-declaration => ｢let calc_ship be the Fn :Price (purchase is Purchase) => {
   purchase.price //pretend we've done some extensive calculation
 }｣
   let => ｢let｣
@@ -86,13 +154,13 @@
   the => ｢the｣
   type => ｢Fn ｣
    fn-type => ｢Fn｣
-  declaration => ｢of Price (purchase is Purchase) => {
+  declaration => ｢:Price (purchase is Purchase) => {
   purchase.price //pretend we've done some extensive calculation
 }｣
-   fn-declaration => ｢of Price (purchase is Purchase) => {
+   fn-declaration => ｢:Price (purchase is Purchase) => {
   purchase.price //pretend we've done some extensive calculation
 }｣
-    of => ｢of｣
+    colon => ｢:｣
     type => ｢Price ｣
     lparen => ｢(｣
     fn-args => ｢purchase is Purchase｣
