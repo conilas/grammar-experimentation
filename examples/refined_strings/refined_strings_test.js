@@ -11,6 +11,6 @@ let Purchase be the Product where {
 let Purchase be the Product having Zipcode, Price and Name
 
 //we perform some random calculation here
-let calc_ship be the Fn :Price (purchase is Purchase) => {
+let calc_ship be the Fn of Price (purchase is Purchase) => {
   purchase.price //pretend we've done some extensive calculation
 }
