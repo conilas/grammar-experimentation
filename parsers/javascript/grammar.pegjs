@@ -1,19 +1,30 @@
 //top level declaration
-program = ws value:value ws { return value; }
+program = ws value:Program ws { return value; }
 
-value
-  = false
-  / string
-  / phrase
-  / null
-  / true
-  / number
 
 // ----- declarations -----
 
-phrase = phrase:"let" space bind_name:word space "be the" space type_bind:word space "having" space arg_list_bind:arg_list {
-	return "Now " + bind_name + " is " + type_bind + " with " + arg_list_bind
-}
+Program
+  = body:SourceElements? {
+      return {
+        type: "Program",
+        body
+      };
+    }
+
+SourceElements
+  = head:declaration tail:(__ declaration)* {
+      console.log(tail, ...tail)
+      return [head, ...tail];
+    }
+
+declaration =
+  "let" _ bind_name:word _ "be" _ type:word _ "=" _ value:word {
+    return `(${bind_name} (${type} (${value})))`
+  }
+  / "let" _ bind_name:word _ "be the" _ type:word _ value: word {
+    return `(${bind_name} (${type} (${value})))`
+  }
 
 arg_list = values:(word separator)+ {
     const head = (v) => v[0]
@@ -22,6 +33,30 @@ arg_list = values:(word separator)+ {
 separator =
 		"," space
     / space "and" space
+
+_  = [ \t\r\n]*
+
+
+__
+= (WhiteSpace / LineTerminatorSequence)*
+
+WhiteSpace "whitespace"
+  = "\t"
+  / "\v"
+  / "\f"
+  / " "
+  / "\u00A0"
+  / "\uFEFF"
+
+  LineTerminatorSequence "end of line"
+    = "\n"
+    / "\r\n"
+    / "\r"
+    / "\u2028"
+    / "\u2029"
+
+LineTerminator
+= [\n\r\u2028\u2029]
 
 // ----- helpers -----
 

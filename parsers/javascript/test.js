@@ -1,3 +1,8 @@
 const peg = require("./grammar.js");
+const fs  = require("fs")
 
-console.log(peg.parse("let Purchase be the Product having Zipcode and Price, "))
+fs.readFile("../../examples/declarations/declarations.js", (err, parseableBuffer) => {
+  const parseableExpression = parseableBuffer.toString()
+
+  console.log(peg.parse(parseableExpression))
+})
