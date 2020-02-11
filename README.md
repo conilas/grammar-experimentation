@@ -14,7 +14,7 @@ For some code samples, please refer to the ```examples``` folder.
 
 # Goals and non-goals
 
-## What we cover (syntactically speaking)
+## What we cover 
 
 * Product types; (Inspired by records in F# or structs in Rust)
 * Sum types; (Inspired by Crystal and Pony)
