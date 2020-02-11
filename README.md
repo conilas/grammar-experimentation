@@ -23,7 +23,7 @@ For some code samples, please refer to the ```examples``` folder.
   * Refined strings added based on https://github.com/Microsoft/BosqueLanguage/blob/master/docs/language/overview.md#1.1.2-Typed-Strings
 * Modules; (Still defining. Maybe mesa-like?)
 * Higher-order types; (Inspired by The Little Typer and its PieLang)
-* Higher-order function; (The syntax of function declaration is heavily inspired by JS)
+* Sugar for unnamed functions (lambdas) 
 * Default parameters; (Python style)
 * Pattern match with guards; (OCaml style)
 
