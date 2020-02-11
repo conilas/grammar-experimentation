@@ -42,8 +42,7 @@ For some code samples, please refer to the ```examples``` folder.
 
 ## What we may cover
 
-* Monadic syntax; (maybe just the optional monad to avoid being two pedant - and I would not be able to implement those lol)
-* State control; (for the product types maybe?)
+* Sugar to look like state control (as we only support immutability); (for the product types maybe?)
 * Objects; (prototype? classes? this one annoys me - hard to tackle)
 * Meta programming; (Hygienic macros; α-conversion)
 * Multi-method and late binding;
