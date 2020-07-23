@@ -69,3 +69,4 @@ For some code samples, please refer to the ```examples``` folder.
 * Ponylang/Crystal (syntax simplicity, sum types and modern!);
 * The little typer (book) and Idris (dependent/refined types);
 * Parsing Expression Grammars - PEGS (parsing);
+
